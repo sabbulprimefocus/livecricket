@@ -27,7 +27,7 @@ $(document).ready(function(){
             }
         });
     }
-    // getScorecardData();
+    getData();
     function getScorecardData(){
         $.ajax({
             url : 'https://www.cricbuzz.com/api/html/cricket-scorecard/30340',
@@ -100,7 +100,15 @@ $(document).ready(function(){
                         $('.second-team').hide();
                         if(typeof(data.matchHeader)!=undefined){
                             $('.first-team-name').text(data.matchHeader.team1.shortName);
-                            var fts = miniScore.matchScoreDetails.inningsScoreList[0].score.toString() +"-"+miniScore.matchScoreDetails.inningsScoreList[0].wickets.toString() + "("+miniScore.matchScoreDetails.inningsScoreList[0].overs.toString()+")" ;
+                            var xt0 = miniScore.matchScoreDetails.inningsScoreList[0].overs.toString();
+                            var ovr0 = xt0;
+                            var xtsub0 = xt0.slice(-1);
+                            xtsub0 = parseInt(xtsub0);
+                            if(xtsub0 == 6){
+                                ovr0 = xt0.slice(0,-2);
+                                ovr0 = parseInt(ovr0)+1;
+                            }
+                            var fts = miniScore.matchScoreDetails.inningsScoreList[0].score.toString() +"-"+miniScore.matchScoreDetails.inningsScoreList[0].wickets.toString() + "("+ovr0+")" ;
                             $('.first-team-score').text(fts);
                             $('.first-team-score-crr').show();
                             $('.first-team-score-crr-num').text(miniScore.currentRunRate);
@@ -110,8 +118,24 @@ $(document).ready(function(){
                         if(typeof(data.matchHeader)!=undefined){
                             $('.first-team-name').text(data.matchHeader.team1.shortName);
                             $('.second-team-name').text(data.matchHeader.team2.shortName);
-                            var fts = miniScore.matchScoreDetails.inningsScoreList[1].score.toString() +"-"+miniScore.matchScoreDetails.inningsScoreList[1].wickets.toString() + "("+miniScore.matchScoreDetails.inningsScoreList[1].overs.toString()+")" ;
-                            var sts = miniScore.matchScoreDetails.inningsScoreList[0].score.toString() +"-"+miniScore.matchScoreDetails.inningsScoreList[0].wickets.toString() + "("+miniScore.matchScoreDetails.inningsScoreList[0].overs.toString()+")" ;
+                            var xt1 = miniScore.matchScoreDetails.inningsScoreList[1].overs.toString();
+                            var ovr1 = xt1;
+                            var xtsub1 = xt1.slice(-1);
+                            xtsub1 = parseInt(xtsub1);
+                            if(xtsub1 == 6){
+                                ovr1 = xt1.slice(0,-2);
+                                ovr1 = parseInt(ovr1)+1;
+                            }
+                            var xt0 = miniScore.matchScoreDetails.inningsScoreList[0].overs.toString();
+                            var ovr0 = xt0;
+                            var xtsub0 = xt0.slice(-1);
+                            xtsub0 = parseInt(xtsub0);
+                            if(xtsub0 == 6){
+                                ovr0 = xt0.slice(0,-2);
+                                ovr0 = parseInt(ovr0)+1;
+                            }
+                            var fts = miniScore.matchScoreDetails.inningsScoreList[1].score.toString() +"-"+miniScore.matchScoreDetails.inningsScoreList[1].wickets.toString() + "("+ovr1+")" ;
+                            var sts = miniScore.matchScoreDetails.inningsScoreList[0].score.toString() +"-"+miniScore.matchScoreDetails.inningsScoreList[0].wickets.toString() + "("+ovr0+")" ;
                             $('.first-team-score').text(fts);
                             $('.second-team-score').text(sts);
                             $('.first-team-score-crr').hide();
