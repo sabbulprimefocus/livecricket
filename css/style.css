@@ -65,7 +65,7 @@ h3 {
 }
 
 h4 {
-	font-size: 18px;
+	font-size: 16px;
 }
 
 h5 {
@@ -530,7 +530,7 @@ ol {
 }
 
 .hs-item .hs-text h2 {
-	font-size: 30px;
+	font-size: 20px;
 	color: #e8e1e1;
 	font-weight: 700;
 	margin-bottom: 32px;
@@ -908,11 +908,11 @@ ol {
 	color: #ffffff;
 	font-weight: 500;
 	background: #2c2d2f;
-	padding: 14px 0 13px;
+	padding: 14px 10px 13px;
 }
 
 .points-table table thead tr th.th-o {
-	text-align: center;
+	text-align: left;
 }
 
 .points-table table tbody {
@@ -926,10 +926,10 @@ ol {
 }
 
 .points-table table tbody tr td {
-	text-align: center;
+	text-align: left;
 	font-size: 14px;
 	color: #636363;
-	padding: 12px 0;
+	padding: 12px 10px;
 }
 
 .points-table table tbody tr td.team-name {
